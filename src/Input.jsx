@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { UilSearch, UilLocationPoint } from "@iconscout/react-unicons";
 import { toast } from "react-toastify";
 
-function Inputs({ setQuery, units, setUnits }) {
+function Input({ setQuery, units, setUnits }) {
   const [city, setCity] = useState("");
 
   const handleUnitsChange = (e) => {
@@ -73,4 +73,4 @@ function Inputs({ setQuery, units, setUnits }) {
   );
 }
 
-export default Inputs;
+export default Input;
