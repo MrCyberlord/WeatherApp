@@ -43,11 +43,28 @@ const formatCurrentWeather = (data) => {
     };
 };
 
+// const formatForecastWeather = (data) => {
+//     let { city: { timezone }, list } = data;
+//     list = list.map((item) => {
+//         return {
+//             title: formatToLocalTime(item.dt, timezone, "ccc hh:mm a"),
+//             temp: item.main.temp,
+//             icon: item.weather[0].icon,
+//         };
+//     });
+
+//     return { timezone, list };
+// };
+
 const formatForecastWeather = (data) => {
     let { city: { timezone }, list } = data;
     list = list.map((item) => {
+        const date = new Date(item.dt * 1000); // Convert timestamp to milliseconds
+        const formattedDate = date.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
+        const time = item.dt_txt.split(' ')[1]; // Extracting time from dt_txt field
+
         return {
-            title: formatToLocalTime(item.dt, timezone, "ccc hh:mm a"),
+            datetime: `${formattedDate} ${time}`, // Combine date and time
             temp: item.main.temp,
             icon: item.weather[0].icon,
         };
@@ -55,6 +72,8 @@ const formatForecastWeather = (data) => {
 
     return { timezone, list };
 };
+
+
 
 const getFormattedWeatherData = async (searchParams) => {
     const formattedCurrentWeather = await getWeatherData(
@@ -68,6 +87,7 @@ const getFormattedWeatherData = async (searchParams) => {
         lat,
         lon,
         units: searchParams.units,
+        cnt: 10
     }).then(formatForecastWeather);
 
     return { ...formattedCurrentWeather, forecast: formattedForecastWeather.list };

@@ -31,44 +31,42 @@ function Input({ setQuery, units, setUnits }) {
   };
 
   return (
-    <div className="flex flex-row justify-center my-6">
-      <div className="flex flex-row w-3/4 items-center justify-center space-x-4">
+    <div className="flex flex-row justify-center py-6">
+
+      <div className="flex flex-row space-x-4 ">
         <input
           value={city}
           onChange={(e) => setCity(e.currentTarget.value)}
           type="text"
-          placeholder="Search for city...."
-          className="text-xl font-light p-2 w-full shadow-xl focus:outline-none capitalize placeholder:lowercase"
+          placeholder="Enter city name"
+          className="text-3xl font-semibold p-2 shadow-xl  focus:outline-none rounded-2xl"
         />
         <UilSearch
-          size={25}
-          className="text-white cursor-pointer transition ease-out hover:scale-125"
+          size={40}
+          className="text-black cursor-pointer transition ease-out hover:scale-125 translate-y-2"
           onClick={handleSearchClick}
         />
         <UilLocationPoint
-          size={25}
-          className="text-white cursor-pointer transition ease-out hover:scale-125"
+          size={40}
+          className="text-black cursor-pointer transition ease-out hover:scale-125 translate-y-2"
           onClick={handleLocationClick}
         />
-      </div>
-
-      <div className="flex flex-row w-1/4 items-center justify-center">
-        <button
+         <button 
           name="metric"
-          className="text-xl text-white font-light transition ease-out hover:scale-125"
+          className="text-[2.35rem] font-semibold text-black transition ease-out hover:scale-125 "
           onClick={handleUnitsChange}
         >
           °C
         </button>
-        <p className="text-xl text-white mx-1">|</p>
         <button
           name="imperial"
-          className="text-xl text-white font-light transition ease-out hover:scale-125"
+          className="text-[2.35rem] text-black font-semibold transition ease-out hover:scale-125"
           onClick={handleUnitsChange}
         >
           °F
         </button>
       </div>
+
     </div>
   );
 }
