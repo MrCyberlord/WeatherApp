@@ -5,7 +5,7 @@ import { iconUrlFromCode } from "./WeatherData";
 function MultiDayForecast({ items, units }) {
     const unitSymbol = units === "metric" ? "°C" : "°F";
   return (
-    <div className="mt-4">
+    <div className="mt-4 mb-0 ">
       <div className="flex items-center justify-start">
         <p className="text-black font-medium uppercase px-3">4-Day Forecast</p>
       </div>
