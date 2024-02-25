@@ -11,7 +11,16 @@ function Input({ setQuery, units, setUnits }) {
   };
 
   const handleSearchClick = () => {
-    if (city !== "") setQuery({ q: city });
+    if (city !== "") {
+      setQuery({ q: city });
+      setCity("")
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" && city !== "") {
+      handleSearchClick(); // Reusing the handleSearchClick logic for the Enter key press
+    }
   };
 
   const handleLocationClick = () => {
@@ -31,15 +40,20 @@ function Input({ setQuery, units, setUnits }) {
   };
 
   return (
-    <div className="flex flex-row justify-center py-6">
+    <div className="flex flex-row justify-center py-3
+    sm:py-4">
 
-      <div className="flex flex-row space-x-4 ">
+      <div className="flex flex-row space-x-3 
+      sm:space-x-4
+      ">
         <input
           value={city}
           onChange={(e) => setCity(e.currentTarget.value)}
+          onKeyPress={handleKeyPress}
           type="text"
           placeholder="Enter city name"
-          className="text-3xl font-semibold p-2 shadow-xl  focus:outline-none rounded-2xl"
+          className="text-xl font-semibold p-1 shadow-xl  focus:outline-none rounded-2xl
+          sm:text-3xl"
         />
         <UilSearch
           size={40}
