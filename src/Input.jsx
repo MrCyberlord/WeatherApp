@@ -40,10 +40,10 @@ function Input({ setQuery, units, setUnits }) {
   };
 
   return (
-    <div className="flex flex-row justify-center py-3
+    <div className="flex flex-row justify-around alpy-3
     sm:py-4">
 
-      <div className="flex flex-row space-x-3 
+      <div className="flex flex-row space-x-1 px-1
       sm:space-x-4
       ">
         <input
@@ -52,7 +52,7 @@ function Input({ setQuery, units, setUnits }) {
           onKeyPress={handleKeyPress}
           type="text"
           placeholder="Enter city name"
-          className="text-xl font-semibold p-1 shadow-xl  focus:outline-none rounded-2xl
+          className="text-xs font-semibold shadow-xl  focus:outline-none rounded-2xl
           sm:text-3xl"
         />
         <UilSearch
