@@ -40,7 +40,7 @@ function Input({ setQuery, units, setUnits }) {
   };
 
   return (
-    <div className="flex flex-row justify-around alpy-3
+    <div className="flex flex-row justify-around py-3
     sm:py-4">
 
       <div className="flex flex-row space-x-1 px-1
@@ -52,8 +52,8 @@ function Input({ setQuery, units, setUnits }) {
           onKeyPress={handleKeyPress}
           type="text"
           placeholder="Enter city name"
-          className="text-xs font-semibold shadow-xl  focus:outline-none rounded-2xl
-          sm:text-3xl"
+          className="text-xs h-9 font-semibold shadow-xl  focus:outline-none rounded-2xl
+          sm:text-3xl sm:h-auto"
         />
         <UilSearch
           size={40}
@@ -67,7 +67,7 @@ function Input({ setQuery, units, setUnits }) {
         />
          <button 
           name="metric"
-          className="text-[2.35rem] font-semibold text-black transition ease-out hover:scale-125 "
+          className="text-[2.35rem] font-semibold text-black transition ease-out hover:scale-125"
           onClick={handleUnitsChange}
         >
           °C
